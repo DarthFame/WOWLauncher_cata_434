@@ -233,22 +233,27 @@ namespace Launcher
                     _pListUri = Properties.Settings.Default.PatchDownloadURL;
                     _pListDel = Properties.Settings.Default.PatchToDelete;
                     break;
-               
+
                 // TODO: UNCOMMENT IF YOUR SERVER HAS DIFFERENT VERSION REALMS
                 //case " another_client_build_version":
-                
+
                 //Create another string properties in project properties
                 //    _pListUri = Properties.Settings.Default.PatchDownloadURL;
                 //    _pListDel = Properties.Settings.Default.PatchToDelete;
+                case "15595":
+                    _pListUri = Properties.Settings.Default.PatchDownloadURL;
+                    _pListDel = Properties.Settings.Default.PatchToDelete;
+                    break;
+
                 default:
                     //TODO: CHANGE SERVER NAME AND CLIENT VERSION
-                    var result = MessageBox.Show("Для игры на сервере %SERVER-NAME% требуется клиент версии 3.3.5.12340! Поместите программу в корректную папку с игрой или укажите путь к папке!\n\nУказать путь сейчас?", "Ошибка версии клиента", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                    var result = MessageBox.Show("Для игры на сервере Binarnia Cataclysm требуется клиент версии 4.3.4.15595! Поместите программу в корректную папку с игрой или укажите путь к папке!\n\nУказать путь сейчас?", "Ошибка версии клиента", MessageBoxButton.YesNo, MessageBoxImage.Question);
                     TryToFindFolder(result);
                     break;
             }
 
             var rPath = Path.Combine(gPath, @"Data\ruRU\realmlist.wtf");
-            var cPath = Path.Combine(gPath,  "Cache");
+            var cPath = Path.Combine(gPath, @"Cache");
             _gPath = gPath;
 
             try
@@ -284,7 +289,7 @@ namespace Launcher
 
                 //TODO: UNCOMMENT NEXT PART OF CODE IF CLIENT DOESN'T HAVE REALMLIST
                 #region >= 3.3.5 realmlist changer
-                /*
+                
 
                 var builder = new StringBuilder();
 
@@ -300,7 +305,7 @@ namespace Launcher
                     writer.Write(builder.ToString());
                 } 
 
-                */
+                
                 #endregion
 
                 DeleteOldPatches();
